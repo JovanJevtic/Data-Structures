@@ -31,6 +31,17 @@ class LinkedList {
     }
 
 
+    insertAfter(value, afterValue) {
+        const afterNode = this.find(afterValue);
+     
+        if (afterNode) {
+            const newNode = { value: value, next: afterNode.next }
+            afterNode.next = newNode;
+        }
+
+    }
+
+
     find(value) {
         if (!this.head) {
             return "No elements to find";
@@ -111,6 +122,10 @@ linkedList1.delete(9);
 
 // Find
 console.log(linkedList1.find('it works'));
+
+// InsertAfter
+linkedList1.insertAfter(7, 6.39);
+linkedList1.insertAfter('something', 'this is the first fucking element');
 
 // ToArray
 console.log(linkedList1.toArray());

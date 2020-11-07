@@ -69,12 +69,7 @@ class Stack {
         if (isEmpty) {
             console.log('Stack empty')
         } else {
-            console.log(`
-            Stack Not empty, length: ${length} 
-            Current stack: ${stack} 
-            Top item: ${topItem} 
-                
-            `)
+            console.log(`Stack Not empty, length: ${length} Current stack: ${stack} Top item: ${topItem}`)
         }
 
         return this.items;
@@ -119,3 +114,19 @@ stack1.info();
 stack1.clear();
 
 
+//? Reversing word
+const wordStorage = new Stack();
+
+const word = "reversed word";
+
+let reversedWord = "";
+
+for (let i = 0; i < word.length; i++) {
+    wordStorage.push(word[i]);
+}
+
+for (let i = 0; i < word.length; i++) {
+    reversedWord += wordStorage.pop();
+}
+
+console.log(reversedWord)

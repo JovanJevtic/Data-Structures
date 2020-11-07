@@ -5,7 +5,6 @@ class LinkedList {
         this.tail = null;
     }
 
-
     append(value) {
         const newNode = { value: value, next: null }
 
@@ -20,7 +19,6 @@ class LinkedList {
         }
     }    
 
-
     prepend(value) {
         const newNode = { value: value, next: this.head }
         this.head = newNode;
@@ -29,7 +27,6 @@ class LinkedList {
             this.tail = newNode;
         }
     }
-
 
     insertAfter(value, afterValue) {
         const afterNode = this.find(afterValue);
@@ -40,7 +37,6 @@ class LinkedList {
         }
 
     }
-
 
     find(value) {
         if (!this.head) {
@@ -60,6 +56,21 @@ class LinkedList {
         return "No elements matching this value";
     }
 
+    reverse() {
+        if (!this.head) return "LinkedList empty";
+
+        let prev = null;
+        let curr = this.head;
+
+        while (curr) {
+            let next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        this.head = prev;
+
+    }
 
     delete(value) {
         if (!this.head) {
@@ -84,8 +95,7 @@ class LinkedList {
             this.tail = curNode;
         }
     }
-
-
+    
     toArray() {
         const elements = [];
         let curNode = this.head;
@@ -128,4 +138,8 @@ linkedList1.insertAfter(7, 6.39);
 linkedList1.insertAfter('something', 'this is the first fucking element');
 
 // ToArray
+console.log(linkedList1.toArray());
+
+// Reverse
+linkedList1.reverse();
 console.log(linkedList1.toArray());
